@@ -1,0 +1,133 @@
+﻿<Controls:MetroWindow x:Class="SypnosisApp.CampingCheckOutWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SypnosisApp"
+        mc:Ignorable="d"
+        Title="CampingCheckOutWindow" Height="600" Width="800"
+        ShowIconOnTitleBar="true" Icon="sypnosis_logo_icon.ico" WindowState="Maximized">
+    <Controls:MetroWindow.Resources>
+        <Style x:Key="MarginStyle">
+            <Setter Property="Control.Margin" Value="10"/>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="homeButton" Content="home" Click="homeButton_Click"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource ResourceKey=MarginStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Controls:MetroHeader Grid.Row="0" Margin="5" Header="TextBox Header">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <iconPacks:PackIconFontAwesome VerticalAlignment="Center" Kind="CameraSolid" />
+                            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="Picture" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <Image Name="pbPicture" Source="img/no-profile.jpg" Stretch="Uniform" ></Image>
+            </Controls:MetroHeader>
+            <Controls:MetroHeader Grid.Row="1" Margin="5" Header="TextBox Header">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <iconPacks:PackIconFontAwesome VerticalAlignment="Center" Kind="AddressCardSolid" />
+                            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="Name" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox Name="tbName" IsEnabled="False" />
+            </Controls:MetroHeader>
+            <Controls:MetroHeader Grid.Row="2" Margin="5" Header="TextBox Header">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <iconPacks:PackIconFontAwesome VerticalAlignment="Center" Kind="UserSolid" />
+                            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="Account ID" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox Name="tbAccountId" IsEnabled="False" />
+            </Controls:MetroHeader>
+            <Controls:MetroHeader Grid.Row="3" Margin="5" Header="TextBox Header">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <iconPacks:PackIconFontAwesome VerticalAlignment="Center" Kind="TicketAltSolid" />
+                            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="Ticket ID" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox Name="tbTicketNum" IsEnabled="False" />
+            </Controls:MetroHeader>
+
+            <Controls:MetroHeader Grid.Row="4" Margin="5" Header="TextBox Header">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <iconPacks:PackIconFontAwesome VerticalAlignment="Center" Kind="BedSolid" />
+                            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="Campspot ID" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox Name="tbCampspotId" IsEnabled="False" />
+            </Controls:MetroHeader>
+            <Controls:MetroHeader Grid.Row="5" Margin="5" Header="TextBox Header">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <iconPacks:PackIconFontAwesome VerticalAlignment="Center" Kind="CodeSolid" />
+                            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="RFID Code" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox Name="tbRfidTag" IsEnabled="False" TextChanged="tbRfidTag_TextChanged"/>
+            </Controls:MetroHeader>
+            <!--<TextBlock Grid.Column="0" FontSize="20" Grid.Row="0" Text="Ticket Number: " VerticalAlignment="Center"/>
+            <TextBox Name="tbTicketNum" FontSize="20" Grid.Column="1" Grid.Row="0" IsEnabled="False" Text="Scanning"/>
+            <TextBlock Grid.Column="0" FontSize="20" Grid.Row="1" Text="Name: " VerticalAlignment="Center"/>
+            <TextBox Name="tbName" FontSize="20" Grid.Column="1" Grid.Row="1" IsEnabled="False" Text="Scanning"/>
+            <TextBox x:Name="tbRfidTag" FontSize="30" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Grid.ColumnSpan="2" Margin="37,177.6,0,-213.2" Grid.Row="1"/>
+            <Button Name="btnScan" Click="btnScan_Click" Content="Scan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" Margin="37,267.6,0,-316.8" Grid.Row="1" Height="82" Grid.ColumnSpan="2"/>
+            <TextBlock Grid.Column="0" FontSize="20" Grid.Row="1" Text="Account ID: " VerticalAlignment="Center" Margin="0,39.6,0,-26"/>
+            <TextBox x:Name="tbAccountId" FontSize="20" Grid.Column="1" Grid.Row="1" IsEnabled="False" Text="Scanning" Margin="0,35.6,-0.2,-36.2"/>
+            <TextBlock Grid.Column="0" FontSize="20" Grid.Row="1" Text="Campspot ID: " VerticalAlignment="Center" Margin="0,74.6,0,-59.4"/>
+            <TextBox x:Name="tbCampspotId" FontSize="20" Grid.Column="1" Grid.Row="1" IsEnabled="False" Text="Scanning" Margin="0,72.6,-0.2,-73.6"/>-->
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="0" Style="{StaticResource ResourceKey=MarginStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image x:Name="FestivalLogoImage" Grid.Row="0" Source="img/onFESTlogo.png" Stretch="Uniform"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Stretch">
+            <Label Name="lbCampOutStatus" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Red" Margin="5">
+                <Label Content="Scan your bracelet"/>
+            </Label>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
+

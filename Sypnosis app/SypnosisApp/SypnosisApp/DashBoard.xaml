@@ -1,0 +1,158 @@
+﻿<Controls:MetroWindow x:Class="SypnosisApp.DashBoard"
+              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SypnosisApp"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="1000" Width="1800" Language="nl-NL"
+        ShowIconOnTitleBar="true" Icon="sypnosis_logo_icon.ico"
+        WindowState="Maximized">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="homeButton" Content="home" Click="homeButton_Click"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550" ></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="2" >
+            <StackPanel>
+                <ComboBox Name="comboAddType" Margin="212,10,238,0">
+                    <ComboBoxItem Content="1"></ComboBoxItem>
+                    <ComboBoxItem Content="2"></ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="tbAddEmp"  Margin="212,0,238,5" Height="18"></TextBox>
+                <Button FontWeight="Black" x:Name="tbnAddEmployee" Content="Add Shops" HorizontalAlignment="Center" Click="tbnAddEmployee_Click"/>
+                <ComboBox x:Name="comboEmployeeNotAssigned" Margin="212,10,238,0"/>
+                <ComboBox x:Name="comboShopsLoanedID" Margin="212,10,238,0"/>
+
+                <Button FontWeight="Black" x:Name="tbnAssignEmployee" Content="Assign Employees" HorizontalAlignment="Center" Click="tbnAssignEmployee_Click" Margin="566,0"/>
+
+            </StackPanel>
+        </Grid>
+
+
+
+
+
+
+        <Label Grid.Row="0" FontWeight="Black" Name="lbTitle" Content="Administration"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="46" Width="201" FontSize="24" FontFamily="Georgia"  Margin="196,0,845,0" Grid.Column="1"/>
+        <TextBlock Grid.Row="0" Text="" TextWrapping="Wrap" Name="lbTime" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="16" ></TextBlock>
+        <Rectangle  Grid.Row="0" Grid.ColumnSpan="3"  HorizontalAlignment="Stretch" Fill="AliceBlue"  Margin="0,130,0,0" />
+        <Rectangle  Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Fill="AliceBlue" Margin="0,277,-4,0"/>
+        <Image Source="img/onFESTlogo.png" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="0,0,0,50"  Name="imaLogo" Grid.Column="2"  />
+
+        <ProgressBar HorizontalAlignment="Left" Value="100" Height="33" Margin="0,58,0,0" VerticalAlignment="Top" Width="448" Grid.Column="1"/>
+        <ProgressBar HorizontalAlignment="Left" Value="100" Height="33" Margin="27,58,0,0" VerticalAlignment="Top" Width="448"/>
+        <ProgressBar HorizontalAlignment="Left" Value="50" Height="33" Margin="659,58,0,0" VerticalAlignment="Top" Width="448" RenderTransformOrigin="-0.09,0.6" Grid.Column="1"/>
+
+
+
+
+
+        <Label Grid.Row="0" Grid.Column="0"  FontWeight="Bold" Content="Day1" HorizontalAlignment="Left" Margin="27,18,0,0" FontSize="20" VerticalAlignment="Top" Width="76"/>
+        <Label Grid.Row="0" Grid.Column="1"  FontWeight="Bold" Content="Day2" HorizontalAlignment="Left" Margin="10,21,0,0" FontSize="20" VerticalAlignment="Top" Width="76"/>
+        <Label Grid.Row="0" Grid.Column="1"  FontWeight="Bold" Content="Day3" HorizontalAlignment="Left" Margin="659,23,0,0" FontSize="20" VerticalAlignment="Top" Width="76"/>
+
+        <Label Grid.Row="1" Grid.Column="0" x:Name="lb" Content="Shop" HorizontalAlignment="Left" Margin="15,7,0,0" FontSize="14" VerticalAlignment="Top" Width="76"/>
+        <ComboBox  Grid.Row="1" Name="comboShop" HorizontalAlignment="Left" Margin="147,8,0,0" VerticalAlignment="Top" Width="104" SelectedIndex="5" Grid.Column="0"></ComboBox>
+        <Label Grid.Row="1" Grid.Column="0" x:Name="lbLoaning" Content="Loaning Stand" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,72,0,0" FontSize="14" Grid.ColumnSpan="2"/>
+        <ComboBox  Grid.Row="1" Grid.Column="0" x:Name="comboShopEmployee" HorizontalAlignment="Left" Margin="147,39,0,0" VerticalAlignment="Top" Width="104" SelectedIndex="5"/>
+        <Label  Grid.Row="1" Grid.Column="0" x:Name="lbEmployee" Content="Employee" HorizontalAlignment="Left" Margin="15,39,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox  Grid.Row="1" Grid.Column="0" x:Name="comboLoan" HorizontalAlignment="Left" Margin="147,74,0,0" VerticalAlignment="Top" Width="104" SelectedIndex="5"/>
+        <Label  Grid.Row="1" x:Name="lbEmployee_Copy" Content="Employee" HorizontalAlignment="Left" Margin="15,104,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox  Grid.Row="1" x:Name="comboRentalEmp" HorizontalAlignment="Left" Margin="147,105,0,0" VerticalAlignment="Top" Width="104" SelectedIndex="5" Grid.Column="0"/>
+        <Label  Grid.Row="1" x:Name="lbNrtotalShopLoaned" Content="TotalShopsLoans" HorizontalAlignment="Left" Margin="274,7,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbNrTotalShopsLoan" Background="Yellow" Margin="441,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbNrTotalShops" Content="Number of Shops" HorizontalAlignment="Left" Margin="274,39,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbNrTotalShops" Background="Yellow" Margin="441,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbNrTotalLoan" Content="Number of LoanStands" HorizontalAlignment="Left" Margin="274,74,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbNrTotalLoan" Background="Yellow" Margin="441,72,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbItemType" Content="Number of Items" HorizontalAlignment="Left" Margin="274,105,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbItem" Background="Yellow" Margin="441,104,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbItemTypes" Content="Number of ItemsTypes" HorizontalAlignment="Left" Margin="274,138,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbItemTypes" Background="Yellow" Margin="442,138,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbNrEmployee" Content="Number of Employees" HorizontalAlignment="Left" Margin="273,173,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbNrEmployees" Background="Yellow" Margin="441,173,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbNradmin" Content="Number of Admins" HorizontalAlignment="Left" Margin="273,206,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbNradmins" Background="Yellow" Margin="441,208,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbSaleItem" Content="SaledItems" HorizontalAlignment="Left" Margin="15,140,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbSaledItems" Background="#FF7CB9F5" Margin="147,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbRentedItems" Content="RentedItems" HorizontalAlignment="Left" Margin="15,173,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbRentedItems" Background="#FF7CB9F5" Margin="147,175,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <Label  Grid.Row="1" x:Name="lbSubsCriber" Content="RentedItems" HorizontalAlignment="Left" Margin="15,206,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Grid.Row="1" IsEnabled="False" Name="tbSubscriber" Background="#FF7CB9F5" Margin="147,208,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+
+
+
+
+
+
+        <Label Grid.Row="2" FontSize="14" Content="Ticket Income" Margin="16,7,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  />
+        <Label Grid.Row="2" FontSize="14" Content="Camping Income" Margin="16,99,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Grid.Row="2" FontSize="14" Content="Shop Income" Margin="16,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+        <Label Grid.Row="2" FontSize="14" Content="Loan Income" Margin="16,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+        <Label Grid.Row="2" FontSize="16" Content="Total Income" Margin="16,125,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold"/>
+        <TextBox Grid.Row="2" IsEnabled="False" Name="tbTicketI" Background="#FF7CB9F5" Margin="147,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <TextBox Grid.Row="2" IsEnabled="False" Name="tbCampI" Background="#FF7CB9F5" Margin="147,98,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <TextBox Grid.Row="2" IsEnabled="False" Name="tbShopI" Background="#FF7CB9F5" Margin="147,67,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <TextBox Grid.Row="2" IsEnabled="False" Name="tbLoanI" Background="#FF7CB9F5" Margin="147,36,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"></TextBox>
+        <TextBox Grid.Row="2" IsEnabled="False" x:Name="tbTotalI" Background="#FF7CB9F5" Margin="147,129,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"/>
+        <Label Grid.Row="2" FontSize="14" Content="Number Of Registerd" Margin="281,7,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0"  />
+        <TextBox Grid.Row="2" IsEnabled="False" x:Name="tbNrRegistered" Background="Yellow" Margin="441,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"/>
+        <Label Grid.Row="2" FontSize="14" Content="Number Of Checks In" Margin="281,34,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0"  />
+        <TextBox Grid.Row="2" IsEnabled="False" x:Name="tbNrChecksin" Background="Yellow" Margin="441,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="Income Chart Version" Name="btnPie2" Margin="10,174,299,220" VerticalAlignment="Stretch" Click="btnPie_Click"></Button>
+        <Button Grid.Row="2" Content="Infomation Chart Version" Name="btnPie1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,172,5,220" Width="264" Click="btnPie1_Click" Grid.Column="0"></Button>
+        <Label Grid.Row="2" FontSize="14" Content="Number Of Tickets" Margin="281,67,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0"  />
+        <TextBox Grid.Row="2" IsEnabled="False" x:Name="tbNrTicket" Background="Yellow" Margin="441,67,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"/>
+        <Label Grid.Row="2" FontSize="14" Content="Number Of Camp" Margin="281,96,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0"  />
+        <TextBox Grid.Row="2" IsEnabled="False" x:Name="tbNrCamp" Background="Yellow" Margin="441,98,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" Grid.Column="0"/>
+        <Label Grid.Row="2" FontSize="14" Content="Number Of Left" Margin="281,127,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0"  />
+        <TextBox Grid.Row="2" IsEnabled="False" x:Name="tbNrLeft" Background="Yellow" Margin="441,129,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5"/>
+
+        <DataGrid ItemsSource="{Binding }" Grid.Column="1" Name="datagridTable" HorizontalAlignment="Left" Height="390" Margin="27,119,0,0" Grid.Row="2" VerticalAlignment="Top" Width="545" SelectionChanged="datagridTable_SelectionChanged"/>
+        <Label Grid.Row="2" FontSize="16" Content="Visitors Information" Margin="293,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" FontWeight="Bold"  />
+        <Label Grid.Row="2" FontSize="14" Content="Search" Margin="508,68,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" FontWeight="Bold"  />
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="tbSearchID" Margin="582,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" TextChanged="tbSearchID_TextChanged"/>
+        <Label Grid.Row="2" FontSize="14" Content="ID" Margin="577,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="tbSearchLastName" Margin="826,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" TextChanged="tbSearchLastName_TextChanged"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="tbSearchFirstName" Margin="704,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" Height="9" RenderTransformOrigin="0.5,0.5" TextChanged="tbSearchFirstName_TextChanged"/>
+        <Label Grid.Row="2" FontSize="14" Content="FirstName" Margin="704,43,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+        <Label Grid.Row="2" FontSize="14" Content="LastName" Margin="826,42,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" x:Name="btSelectedLastName" Margin="740,244,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" Height="9" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" x:Name="btSelectedFirstName" Margin="740,185,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" Height="9" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" x:Name="btSelectedId" Margin="740,129,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" Height="9" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" x:Name="btSelectedBalance" Margin="740,307,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" Height="9" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" x:Name="btSelecteddob" Margin="740,363,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" Height="9" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" x:Name="btSelectedgender" Margin="740,426,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127" Height="9" RenderTransformOrigin="0.5,0.5"/>
+
+        <Label Grid.Row="2" FontSize="14" Content="ID number" Margin="653,129,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" RenderTransformOrigin="2.16,1.429"/>
+        <Label Grid.Row="2" FontSize="14" Content="FirstName" Margin="653,185,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" RenderTransformOrigin="2.16,1.429"/>
+        <Label Grid.Row="2" FontSize="14" Content="LastName" Margin="654,242,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" RenderTransformOrigin="2.16,1.429"/>
+        <Label Grid.Row="2" FontSize="14" Content="Balance" Margin="669,305,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" RenderTransformOrigin="2.16,1.429"/>
+        <Label Grid.Row="2" FontSize="14" Content="DOB" Margin="682,363,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" RenderTransformOrigin="2.16,1.429"/>
+        <Label Grid.Row="2" FontSize="14" Content="Gender" Margin="669,426,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" RenderTransformOrigin="2.16,1.429"/>
+        <Image Name="imgUsers" Grid.Column="1" HorizontalAlignment="Left" Height="268" Margin="878,206,0,0" Grid.Row="2" VerticalAlignment="Top" Width="284"/>
+        <Label Grid.Row="1" Grid.Column="1"  FontWeight="UltraLight" Content="Shop Type(1:Shop 2:Loan)" HorizontalAlignment="Left" Margin="10,8,0,0" FontSize="14" VerticalAlignment="Top" Width="175"/>
+        <Label Grid.Row="1" Grid.Column="1"  FontWeight="UltraLight" Content="Shop Name" HorizontalAlignment="Left" Margin="84,36,0,0" FontSize="14" VerticalAlignment="Top" Width="98"/>
+        <Label Grid.Row="1" Grid.Column="1"  FontWeight="UltraLight" Content="Unassgined Employee" HorizontalAlignment="Left" Margin="27,103,0,0" FontSize="14" VerticalAlignment="Top" Width="148" RenderTransformOrigin="0.615,0.393"/>
+        <Label Grid.Row="1" Grid.Column="1"  FontWeight="UltraLight" Content="Shops ID" HorizontalAlignment="Left" Margin="27,138,0,0" FontSize="14" VerticalAlignment="Top" Width="148" RenderTransformOrigin="0.615,0.393"/>
+        <Button Grid.Row="2" Content="Search" Name="btnSerach"  Margin="968,60,80,421" Click="btnSerach_Click" Grid.Column="1" FontWeight="Bold"/>
+
+
+
+
+    </Grid>
+</Controls:MetroWindow>

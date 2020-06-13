@@ -1,0 +1,81 @@
+﻿<Controls:MetroWindow x:Class="SypnosisApp.MainWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SypnosisApp"
+        mc:Ignorable="d"
+        Title="Main Window" Height="879" Width="1070"
+        ShowIconOnTitleBar="true" Icon="sypnosis_logo_icon.ico" WindowState="Maximized">
+    <Controls:MetroWindow.Resources>
+        <Style x:Key="TileStyle" TargetType="Controls:Tile">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="150"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value=".75" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="AdminTileStyle" TargetType="Controls:Tile" BasedOn="{StaticResource TileStyle}">
+            <Setter Property="Background" Value="#CCFF0080"/>
+        </Style>
+        <Style x:Key="EmployeeTileStyle" TargetType="Controls:Tile" BasedOn="{StaticResource TileStyle}">
+            <Setter Property="Background" Value="#CCD100FF"/>
+        </Style>
+        <Style x:Key="FestivalTileStyle" TargetType="Controls:Tile" BasedOn="{StaticResource TileStyle}">
+            <Setter Property="Background" Value="#CC3CC71D"/>
+        </Style>
+        <Style x:Key="CampingTileStyle" TargetType="Controls:Tile" BasedOn="{StaticResource TileStyle}">
+            <Setter Property="Background" Value="#CCEC220D"/>
+        </Style>
+        <Style x:Key="ShopTileStyle" TargetType="Controls:Tile" BasedOn="{StaticResource TileStyle}">
+            <Setter Property="Background" Value="#CC0DC3EC"/>
+        </Style>
+        <Style x:Key="TileIcon" TargetType="iconPacks:PackIconFontAwesome">
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="Height" Value="75"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+            <WrapPanel Margin="50" MaxHeight="500" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" ItemHeight="150" Height="Auto">
+                <Controls:Tile x:Name="btnDashBoard" Title="Admin" Count="Dashboard" Style="{StaticResource AdminTileStyle}" Click="btnDashBoard_Click">
+                    <iconPacks:PackIconFontAwesome Kind="ChartPieSolid" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile x:Name="btnTransaction" Title="Admin" Count="Transaction" Style="{StaticResource AdminTileStyle}" Click="btnTransaction_Click">
+                    <iconPacks:PackIconFontAwesome Kind="FileAltRegular" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Title="Employee" Count="Registration" Style="{StaticResource EmployeeTileStyle}" Click="btnRegistration_Click">
+                    <iconPacks:PackIconFontAwesome Kind="RegisteredRegular" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Title="Employee" Count="Login" Style="{StaticResource EmployeeTileStyle}" Click="btnLogin_Click">
+                    <iconPacks:PackIconFontAwesome Kind="AddressBookRegular" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Title="Festival" Count="Check In" Style="{StaticResource FestivalTileStyle}" Click="btnFestivalCheckIn_Click">
+                    <iconPacks:PackIconFontAwesome Kind="SignInAltSolid" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Title="Festival" Count="Check Out" Style="{StaticResource FestivalTileStyle}" Click="btnFestivalCheckOut_Click">
+                    <iconPacks:PackIconFontAwesome Kind="SignOutAltSolid" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Title="Camping" Count="Check In" Style="{StaticResource CampingTileStyle}" Click="btnCampingCheckIn_Click">
+                    <iconPacks:PackIconFontAwesome Kind="SignInAltSolid" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Title="Camping" Count="Check Out" Style="{StaticResource CampingTileStyle}" Click="btnCampingCheckOut_Click">
+                    <iconPacks:PackIconFontAwesome Kind="SignOutAltSolid" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Title="Store" Count="Shop" Style="{StaticResource ShopTileStyle}" Click="btnSale_Click">
+                    <iconPacks:PackIconFontAwesome Kind="MoneyBillAltRegular" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+                <Controls:Tile Name="btnRental" Title="Store" Count="Rent" Style="{StaticResource ShopTileStyle}" Click="btnRental_Click">
+                    <iconPacks:PackIconFontAwesome Kind="RetweetSolid" Style="{StaticResource TileIcon}"/>
+                </Controls:Tile>
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
+</Controls:MetroWindow>
